@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CoinService } from './../../coin.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,8 @@ export class IndexComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private coinService: CoinService
+    private coinService: CoinService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class IndexComponent implements OnInit {
     this.coinService.deleteCoin(id).subscribe(
       res => {
         console.log('Deleted');
+        location.reload();
         
       }
     )
