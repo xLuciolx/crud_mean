@@ -45,7 +45,7 @@ export class EditComponent implements OnInit {
     this.route.params.subscribe(
       params => {
         this.coinService.updateCoin(name, price, params['id']);
-        this.router.navigate['index'];
+        this.router.navigate(['index']);
       }
     )
   }

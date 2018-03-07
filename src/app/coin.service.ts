@@ -39,4 +39,23 @@ export class CoinService {
       }
     )
   }
+
+  updateCoin(name, price, id){
+    const coin = {
+      name: name,
+      price: price
+    }
+    return this.http.post(uri + '/coins/update/' + id, coin).subscribe( res => {
+      console.log('Done');
+      
+    })
+  }
+
+  deleteCoin(id){
+    return this.http.get(uri + '/coins/delete/' + id).map(
+      res => {
+        return res;
+      }
+    )
+  }
 }
